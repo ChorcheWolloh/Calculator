@@ -1,5 +1,5 @@
-Basic JavaScript calculator.
+# Basic JavaScript calculator
 
-Final assignment for the brainnest training course.
+*Final assignment for Brainnest training course.*
 
-https://chorchewolloh.github.io/Calculator/
+  https://chorchewolloh.github.io/Calculator/
