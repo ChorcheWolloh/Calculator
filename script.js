@@ -18,7 +18,7 @@ class Calculator {
 
     appendNumber(number) {
         if (number === '.' && this.currentOperand.includes('.')) return; 
-        if (number === "0" && this.previousOperand !== '') {
+        if (number === "0" && this.previousOperand !== '' && this.currentOperand === '' && this.operation === "/") {
             alert('Do not divide by zero!');
             return;
         }
