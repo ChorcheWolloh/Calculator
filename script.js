@@ -18,7 +18,7 @@ class Calculator {
 
     appendNumber(number) {
         if (number === '.' && this.currentOperand.includes('.')) return; 
-        if (number === "0" && this.previousOperand !== '' && this.currentOperand === '' && this.operation === "/") {
+        if (number === "0" && this.previousOperand !== '' && this.currentOperand === '' && this.operation === "÷") {
             alert('Do not divide by zero!');
             return;
         }
@@ -50,7 +50,7 @@ class Calculator {
             case '*':
                 computation = prev * current;
                 break;
-            case '/':
+            case '÷':
                 computation = prev / current;
                 break;
             default: 
@@ -70,7 +70,6 @@ class Calculator {
         }
     }
 }
-
 
 const numberButtons = document.querySelectorAll('[data-number]');
 const operationButtons = document.querySelectorAll('[data-operation]');
@@ -110,3 +109,36 @@ deleteButton.addEventListener('click', button => {
     calculator.delete();
     calculator.updateDisplay();
 })
+
+
+document.addEventListener('keydown', (event) => {
+    let keyCode = event.code;
+    let keyName = event.key;
+    let specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
+    
+    if (keyCode.includes("Digit") && !(specialChar.includes(keyName))) {
+        calculator.appendNumber(keyName);
+        calculator.updateDisplay();
+    } else if (keyCode === "Minus") {
+        calculator.chooseOperation(keyName);
+        calculator.updateDisplay();
+    } else if (keyCode === "Slash") {
+        calculator.chooseOperation(keyName);
+        calculator.updateDisplay();
+    } else if (keyName === "+" && keyCode === "Equal") {
+        calculator.chooseOperation(keyName);
+        calculator.updateDisplay();
+    } else if (keyName === "*") {
+        calculator.chooseOperation(keyName);
+        calculator.updateDisplay();
+    } else if (keyCode === "Equal" && keyName === "=") {
+        calculator.compute();
+        calculator.updateDisplay();
+    } else if (keyCode === "Backspace") {
+        calculator.delete();
+        calculator.updateDisplay();
+    } else if (keyCode === "Delete") {
+        calculator.clear();
+        calculator.updateDisplay();
+    }
+}) 
