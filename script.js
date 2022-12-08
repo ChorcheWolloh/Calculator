@@ -1,4 +1,3 @@
-
 class Calculator {
     constructor(previousOperandTextElement, currentOperandTextElement){
         this.previousOperandTextElement = previousOperandTextElement;
@@ -28,14 +27,14 @@ class Calculator {
     chooseOperation(operation) {
         if (this.currentOperand === '') return;
         if (this.previousOperand !== '') {
-            this.compute();
+            this.operate();
         }
         this.operation = operation;
         this.previousOperand = this.currentOperand;
         this.currentOperand = '';
     }
 
-    compute() {
+    operate() {
         let computation;
         const prev = parseFloat(this.previousOperand);
         const current = parseFloat(this.currentOperand);
@@ -95,17 +94,17 @@ operationButtons.forEach(button => {
     })
 })
 
-equalsButton.addEventListener('click', button => {
-    calculator.compute();
+equalsButton.addEventListener('click', () => {
+    calculator.operate();
     calculator.updateDisplay();
 })
 
-allClearButton.addEventListener('click', button => {
+allClearButton.addEventListener('click', () => {
     calculator.clear();
     calculator.updateDisplay();
 })
 
-deleteButton.addEventListener('click', button => {
+deleteButton.addEventListener('click', () => {
     calculator.delete();
     calculator.updateDisplay();
 })
@@ -132,7 +131,7 @@ document.addEventListener('keydown', (event) => {
         calculator.chooseOperation(keyName);
         calculator.updateDisplay();
     } else if (keyCode === "Equal" && keyName === "=") {
-        calculator.compute();
+        calculator.operate();
         calculator.updateDisplay();
     } else if (keyCode === "Backspace") {
         calculator.delete();

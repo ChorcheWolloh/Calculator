@@ -1,10 +1,9 @@
-
 @font-face {
     font-family: "Orbitron Regular";
     src: url("./fonts/Orbitron-Regular.ttf");
 }
 
-*, *::before, *::after {
+* {
     box-sizing: border-box;
     font-family: "Orbitron Regular", sans-serif;
     font-weight: normal;
