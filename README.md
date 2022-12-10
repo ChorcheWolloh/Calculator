@@ -1,4 +1,4 @@
-#JavaScript calculator
+# JavaScript calculator
 
 *Pretty basic calculator webpage allowing for multiple operations to be chained with keyboard support.*
 
