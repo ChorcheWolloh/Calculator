@@ -55,7 +55,7 @@ class Calculator {
             default: 
                 return;
         }
-        this.currentOperand = computation;
+        this.currentOperand = computation.toFixed(4);
         this.operation = undefined;
         this.previousOperand = ''
     }
